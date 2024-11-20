@@ -3,13 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TabulaDB.Models
 {
-    public class Role
+    [Table("receipt_products")]
+    public class ReceiptProduct
     {
-        public int Id {get; set; }
-        [Column(TypeName = "varchar(255)")]
-        public string Name { get; set; } = string.Empty;
-        public ICollection<User> Users { get; } = new List<User>();
-        
+        public int Id { get; set; }
+        public int ReceiptId { get; set; }
+        public Receipt Receipt { get; set; } = null!;
+        public int ProductId { get; set; }
+        public Product Product { get; set; } = null!;
+
         //TimeStamps
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; set; }

@@ -1,3 +1,6 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace TabulaDB.Models
 {
     public class Log
@@ -9,7 +12,7 @@ namespace TabulaDB.Models
         public User User { get; set; } = null!;
 
         //TimeStamps
-        [DatabaseGenerated(DatabaseGenerated.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; }
     }
 }
