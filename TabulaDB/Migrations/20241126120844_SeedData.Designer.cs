@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TabulaDB.Data;
 
@@ -11,9 +12,11 @@ using TabulaDB.Data;
 namespace TabulaDB.Migrations
 {
     [DbContext(typeof(TabulaPoSContext))]
-    partial class TabulaPoSContextModelSnapshot : ModelSnapshot
+    [Migration("20241126120844_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
