@@ -1,9 +1,11 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace TabulaDB.Models
 {
-    public class Table
+    [Table("service_stations")]
+    [Index(nameof(Name), IsUnique = true)]
+    public class ServiceStation
     {
         public int Id { get; set; }
         [Column(TypeName = "varchar(255)")]

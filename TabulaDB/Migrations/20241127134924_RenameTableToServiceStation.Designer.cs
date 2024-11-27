@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TabulaDB.Data;
 
@@ -11,9 +12,11 @@ using TabulaDB.Data;
 namespace TabulaDB.Migrations
 {
     [DbContext(typeof(TabulaPoSContext))]
-    partial class TabulaPoSContextModelSnapshot : ModelSnapshot
+    [Migration("20241127134924_RenameTableToServiceStation")]
+    partial class RenameTableToServiceStation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,9 +78,6 @@ namespace TabulaDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
                     b.HasIndex("ProductCategoryId");
 
                     b.ToTable("Products");
@@ -108,9 +108,6 @@ namespace TabulaDB.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime?>("UpdatedAt"));
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
 
                     b.ToTable("product_categories");
                 });
@@ -199,9 +196,6 @@ namespace TabulaDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
                     b.ToTable("receipt_status");
                 });
 
@@ -230,9 +224,6 @@ namespace TabulaDB.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime?>("UpdatedAt"));
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
 
                     b.ToTable("Roles");
 
@@ -283,10 +274,7 @@ namespace TabulaDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("service_stations");
+                    b.ToTable("ServiceStations");
                 });
 
             modelBuilder.Entity("TabulaDB.Models.User", b =>
@@ -313,9 +301,6 @@ namespace TabulaDB.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
-
-                    b.HasIndex("Username")
-                        .IsUnique();
 
                     b.ToTable("Users");
 

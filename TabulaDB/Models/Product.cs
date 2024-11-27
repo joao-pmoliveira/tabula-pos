@@ -1,8 +1,9 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace TabulaDB.Models
 {
+    [Index(nameof(Name), IsUnique = true)]
     public class Product
     {
         public int Id { get; set; }
@@ -13,7 +14,7 @@ namespace TabulaDB.Models
         public int ProductCategoryId { get; set; }
         public ProductCategory Category { get; set; } = null!;
         public ICollection<ReceiptProduct> ReceiptProduct { get; } = new List<ReceiptProduct>();
-        
+
         //TimeStamps
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; set; }

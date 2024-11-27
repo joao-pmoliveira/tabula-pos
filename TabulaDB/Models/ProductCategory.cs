@@ -1,9 +1,10 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace TabulaDB.Models
 {
     [Table("product_categories")]
+    [Index(nameof(Name), IsUnique = true)]
     public class ProductCategory
     {
         public int Id { get; set; }

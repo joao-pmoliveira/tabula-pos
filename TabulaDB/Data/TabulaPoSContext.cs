@@ -14,7 +14,7 @@ namespace TabulaDB.Data
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<Receipt> Receipts { get; set; } = null!;
         public DbSet<ReceiptStatus> ReceiptStatus { get; set; } = null!;
-        public DbSet<Table> Tables { get; set; } = null!;
+        public DbSet<ServiceStation> ServiceStations { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -25,8 +25,6 @@ namespace TabulaDB.Data
             var databasePort = Env.GetString("DATABASE_PORT");
             var databaseUser = Env.GetString("DATABASE_USER");
             var databasePass = Env.GetString("DATABASE_PASS");
-
-            Console.WriteLine($"Server:{server};DB_NAME:{databaseName};DB_PORT:{databasePort};DB_USER:{databaseUser};DB_PASS:{databasePass}");
 
             var connectionString = $"server=localhost;database={databaseName};user={databaseUser};password={databasePass}";
 
